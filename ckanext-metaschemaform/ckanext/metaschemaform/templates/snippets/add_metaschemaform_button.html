@@ -3,10 +3,10 @@
 {% if authorized_user %}
     <form action="../">
         <label class="radio">
-                 <input type="radio" value="http://83.212.122.164:15000/harvest/new" name="button_harvester_type" id="navRadio01" checked>CKAN</input>
+                 <input type="radio" value={{ app_globals.site_url ~"/harvest/new"}} name="button_harvester_type" id="navRadio01" checked>CKAN</input>
             </label>
         <label class="radio">
-        <input type="radio" value="http://83.212.122.164:15000/new_custom1" name="button_harvester_type" id="navRadio02">HTML
+        <input type="radio" value={{ app_globals.site_url ~"/new_custom1"}} name="button_harvester_type" id="navRadio02">HTML
             </label><br>
         
         <input type="button" value="Next" class="btn-primary btn"
