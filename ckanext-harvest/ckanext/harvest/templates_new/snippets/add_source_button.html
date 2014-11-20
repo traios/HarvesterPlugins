@@ -1,7 +1,7 @@
 {% set authorized_user = h.check_access('harvest_source_create') %}
 
 {% if authorized_user %}
-  <a href="http://83.212.122.164:15000/metaschemaform" class="btn btn-primary">
+  <a href={{ app_globals.site_url ~"/metaschemaform"}} class="btn btn-primary">
     <i class="icon-plus-sign-alt"></i>
       {{ _('Register a new Catalogue') }}
   </a>
