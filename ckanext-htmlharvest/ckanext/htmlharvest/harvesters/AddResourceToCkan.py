@@ -7,6 +7,7 @@ import configparser
 config = configparser.ConfigParser()
 config.read('/var/local/ckan/default/pyenv/src/ckan/development.ini')
 admin_api_key=config['ckan:odm_extensions']['admin_api_key']
+ckan_url=config['app:main']['ckan.site_url']
 # Put the details of the dataset we're going to create into a dict.
 dataset_dict={}
 def AddResourceToCkan(dataset_dict):
@@ -19,7 +20,7 @@ def AddResourceToCkan(dataset_dict):
 		# We'll use the package_create function to create a new dataset.
 
 		request = urllib2.Request(
-                'http://83.212.122.164:15000/api/action/harvest_source_create')
+                str(ckan_url)+'/api/action/harvest_source_create')
 
 		# Creating a dataset requires an authorization header.
 		# Replace *** with your API key, from your user account on the CKAN site
@@ -45,7 +46,7 @@ def AddResourceToCkan(dataset_dict):
 		# We'll use the package_create function to create a new dataset.
 
 		request = urllib2.Request(
-                'http://83.212.122.164:15000/api/action/harvest_source_update')
+                str(ckan_url)+'/api/action/harvest_source_update')
 
 		# Creating a dataset requires an authorization header.
 		# Replace *** with your API key, from your user account on the CKAN site
